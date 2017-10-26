@@ -1,0 +1,8 @@
+import bs4 as bs
+import urllib.request
+kaynak=urllib.request.urlopen('http://www.canliskor3.com/basketbol/').read()
+soup=bs.BeautifulSoup(kaynak,'lxml')
+mac=soup.find('div',{"id":"main" })
+a=mac.findAll('a')
+for i in a:
+    print(i.text)
